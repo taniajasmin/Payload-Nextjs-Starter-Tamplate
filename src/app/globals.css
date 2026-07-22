@@ -1,0 +1,153 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ── Container utilities (match SectionShell pattern) ───────────── */
+/* ── These mirror: container mx-auto px-4 sm:px-6 lg:px-8        ── */
+@layer utilities {
+  .container-primary {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-secondary {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl;
+  }
+}
+
+/* Existing font tokens (preserved from the pre-shadcn setup). */
+@theme inline {
+  --font-display: var(--font-inter);
+  --font-mono: var(--font-mono-ff, var(--font-inter));
+}
+
+/*
+ * shadcn/ui canonical Tailwind v4 token block.
+ *
+ * `@theme inline` makes Tailwind treat these as runtime CSS variables, so
+ * utilities like `bg-background`, `text-foreground`, `bg-primary`,
+ * `border-border`, `ring-ring`, etc. resolve to whatever the layout's
+ * `<style id="theme-tokens">` block sets at runtime (which in turn reads the
+ * Payload `theme` global). The values in `:root` / `.dark` below are the
+ * shadcn-neutral defaults — they double as SSR-safe fallbacks so first paint
+ * is correct even before the CMS values land.
+ */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #df4c73;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+  --muted: #f1f5f9;
+  --muted-foreground: #6b7280;
+  --accent: #f1f5f9;
+  --accent-foreground: #0f172a;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #e5e7eb;
+  --input: #e5e7eb;
+  --ring: #df4c73;
+  --chart-1: #df4c73;
+  --chart-2: #1f2937;
+  --chart-3: #f59e0b;
+  --chart-4: #16a34a;
+  --chart-5: #6366f1;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #df4c73;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f1f5f9;
+  --sidebar-accent-foreground: #0f172a;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: #df4c73;
+}
+
+.dark {
+  --background: #0b1120;
+  --foreground: #f8fafc;
+  --card: #111827;
+  --card-foreground: #f8fafc;
+  --popover: #111827;
+  --popover-foreground: #f8fafc;
+  --primary: #df4c73;
+  --primary-foreground: #ffffff;
+  --secondary: #1f2937;
+  --secondary-foreground: #f8fafc;
+  --muted: #1f2937;
+  --muted-foreground: #94a3b8;
+  --accent: #1f2937;
+  --accent-foreground: #f8fafc;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #1f2937;
+  --input: #1f2937;
+  --ring: #df4c73;
+  --chart-1: #df4c73;
+  --chart-2: #f8fafc;
+  --chart-3: #f59e0b;
+  --chart-4: #16a34a;
+  --chart-5: #6366f1;
+  --sidebar: #111827;
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #df4c73;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #1f2937;
+  --sidebar-accent-foreground: #f8fafc;
+  --sidebar-border: #1f2937;
+  --sidebar-ring: #df4c73;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}

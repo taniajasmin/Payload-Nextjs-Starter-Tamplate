@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" fill="none">
+  <rect width="320" height="120" rx="12" fill="#3b82f6" opacity="0.08" />
+  <circle cx="40" cy="60" r="30" fill="#3b82f6" opacity="0.12" />
+  <circle cx="280" cy="30" r="50" fill="#3b82f6" opacity="0.05" />
+  <!-- Firewall brick wall -->
+  <rect x="80" y="30" width="60" height="52" rx="3" stroke="#3b82f6" stroke-width="2" opacity="0.4" />
+  <rect x="84" y="34" width="24" height="12" rx="1.5" fill="#3b82f6" opacity="0.15" />
+  <rect x="112" y="34" width="24" height="12" rx="1.5" fill="#3b82f6" opacity="0.12" />
+  <rect x="84" y="50" width="14" height="12" rx="1.5" fill="#3b82f6" opacity="0.12" />
+  <rect x="102" y="50" width="34" height="12" rx="1.5" fill="#3b82f6" opacity="0.15" />
+  <rect x="84" y="66" width="24" height="12" rx="1.5" fill="#3b82f6" opacity="0.12" />
+  <rect x="112" y="66" width="24" height="12" rx="1.5" fill="#3b82f6" opacity="0.1" />
+  <!-- Router/Appliance -->
+  <rect x="170" y="45" width="44" height="28" rx="4" stroke="#3b82f6" stroke-width="2.5" opacity="0.6" />
+  <rect x="170" y="45" width="44" height="8" rx="3" fill="#3b82f6" opacity="0.12" />
+  <circle cx="178" cy="49" r="1.5" fill="#3b82f6" opacity="0.3" />
+  <circle cx="184" cy="49" r="1.5" fill="#3b82f6" opacity="0.3" />
+  <circle cx="190" cy="49" r="1.5" fill="#3b82f6" opacity="0.3" />
+  <rect x="176" y="57" width="32" height="2" rx="1" fill="#3b82f6" opacity="0.15" />
+  <rect x="176" y="62" width="24" height="2" rx="1" fill="#3b82f6" opacity="0.12" />
+  <rect x="176" y="67" width="28" height="2" rx="1" fill="#3b82f6" opacity="0.1" />
+  <!-- Network signal -->
+  <circle cx="250" cy="62" r="4" stroke="#3b82f6" stroke-width="1.5" opacity="0.3" fill="none" />
+  <path d="M244 56c-2 2-4 4-4 6" stroke="#3b82f6" stroke-width="1.5" opacity="0.25" stroke-linecap="round" />
+  <path d="M240 50c-4 3-7 6-7 10" stroke="#3b82f6" stroke-width="1.5" opacity="0.2" stroke-linecap="round" />
+  <!-- VPN tunnel -->
+  <path d="M270 42c15 5 25 15 25 25" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4 4" opacity="0.35" stroke-linecap="round" />
+  <path d="M270 72c10-5 15-12 15-20" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4 4" opacity="0.25" stroke-linecap="round" />
+</svg>

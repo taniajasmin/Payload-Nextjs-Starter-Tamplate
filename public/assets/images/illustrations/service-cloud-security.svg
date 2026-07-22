@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" fill="none">
+  <rect width="320" height="120" rx="12" fill="#10b981" opacity="0.08" />
+  <circle cx="40" cy="60" r="30" fill="#10b981" opacity="0.12" />
+  <circle cx="280" cy="30" r="50" fill="#10b981" opacity="0.05" />
+  <!-- Shield -->
+  <path d="M100 32l-16 14v10c0 12 6 20 16 24 10-4 16-12 16-24V46l-16-14z" stroke="#10b981" stroke-width="2.5" opacity="0.5" fill="#10b981" fill-opacity="0.08" />
+  <path d="M96 48l-3 4 3 6 6-9-3-1h-3z" fill="#10b981" opacity="0.5" />
+  <!-- Cloud -->
+  <path d="M170 50c-5-6-5-14 1-18 4-4 8-5 12-4 3-6 8-10 13-10 8 0 14 7 14 15 0 2 0 3-1 4 5 1 9 6 9 12 0 7-5 12-12 12h-34c-1 0-2-1-2-3v-8z" stroke="#10b981" stroke-width="2.5" opacity="0.5" fill="#10b981" fill-opacity="0.08" />
+  <!-- Lock -->
+  <rect x="230" y="42" width="20" height="20" rx="4" stroke="#10b981" stroke-width="2.5" opacity="0.5" />
+  <path d="M235 42v-6c0-4 2-7 5-7s5 3 5 7v6" stroke="#10b981" stroke-width="2.5" opacity="0.5" />
+  <circle cx="240" cy="53" r="2.5" fill="#10b981" opacity="0.4" />
+  <line x1="240" y1="55" x2="240" y2="58" stroke="#10b981" stroke-width="1.5" opacity="0.4" />
+  <!-- Check -->
+  <circle cx="270" cy="64" r="8" stroke="#10b981" stroke-width="1.5" opacity="0.3" />
+  <path d="M266 64l3 3 5-5" stroke="#10b981" stroke-width="1.5" opacity="0.4" />
+</svg>

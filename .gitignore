@@ -1,0 +1,80 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+.next/
+out/
+dist/
+build/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Payload
+tmp/
+media/
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# Testing
+coverage/
+
+# Docker volumes (local dev)
+infra/docker/data/
+
+# Claude Code
+.claude/
+
+# ─────────────────────────────────────────────────────────────────────
+# Local PRODUCTION configuration — DO NOT commit / DO NOT overwrite on pull
+# Each environment keeps its own ports, hosts, secrets, and process config.
+# Per-app instances (e.g. apps/web) are ignored in their own .gitignore too.
+# ─────────────────────────────────────────────────────────────────────
+
+# Environment files
+.env
+.env.*
+!env.example
+!.env.example
+
+# Docker Compose (per-env service port mappings)
+docker-compose.yml
+docker-compose.*.yml
+!docker-compose.example.yml
+!docker-compose.*.example.yml
+
+# pm2 process manager config (per-env app port / interpreter)
+ecosystem.config.cjs
+ecosystem.config.js
+
+
+
+# Local runtime logs
+logs/
+**/logs/
+
+# Docker volumes (local dev data)
+infra/docker/data/

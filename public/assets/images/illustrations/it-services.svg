@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 400" fill="none">
+  <!-- Background circle -->
+  <circle cx="240" cy="200" r="180" fill="url(#bg-grad)" opacity="0.5" />
+  <defs>
+    <radialGradient id="bg-grad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#286FB4" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#286FB4" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="blue-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#286FB4" />
+      <stop offset="100%" stop-color="#1a4f8a" />
+    </linearGradient>
+    <linearGradient id="rose-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e11d48" />
+      <stop offset="100%" stop-color="#be123c" />
+    </linearGradient>
+    <linearGradient id="teal-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d9488" />
+      <stop offset="100%" stop-color="#0f766e" />
+    </linearGradient>
+    <linearGradient id="amber-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+    <linearGradient id="emerald-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+  </defs>
+
+  <!-- Connecting lines -->
+  <line x1="240" y1="200" x2="100" y2="120" stroke="#286FB4" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.3" />
+  <line x1="240" y1="200" x2="380" y2="100" stroke="#e11d48" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.3" />
+  <line x1="240" y1="200" x2="380" y2="290" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.3" />
+  <line x1="240" y1="200" x2="100" y2="290" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.3" />
+  <line x1="240" y1="200" x2="240" y2="55" stroke="#10b981" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.3" />
+
+  <!-- Central hub -->
+  <circle cx="240" cy="200" r="36" fill="white" stroke="url(#blue-grad)" stroke-width="3" />
+  <circle cx="240" cy="200" r="24" fill="url(#blue-grad)" opacity="0.1" />
+  <!-- Server icon in center -->
+  <rect x="228" y="190" width="24" height="8" rx="2" fill="url(#blue-grad)" />
+  <rect x="228" y="202" width="24" height="8" rx="2" fill="url(#blue-grad)" opacity="0.6" />
+  <circle cx="233" cy="194" r="1.5" fill="#fff" />
+  <circle cx="233" cy="206" r="1.5" fill="#fff" />
+
+  <!-- Top: Shield (Security) -->
+  <circle cx="240" cy="70" r="28" fill="white" stroke="#10b981" stroke-width="2" />
+  <path d="M240 52l-10 10v8c0 8 4 14 10 16 6-2 10-8 10-16v-8l-10-10z" fill="url(#emerald-grad)" opacity="0.15" stroke="url(#emerald-grad)" stroke-width="1.5" />
+  <path d="M237 63l-2 3 2 4 4-6-2-1h-2z" fill="url(#emerald-grad)" />
+
+  <!-- Top-Right: Monitor (AV) -->
+  <rect x="352" y="88" width="40" height="28" rx="3" fill="white" stroke="#e11d48" stroke-width="2" />
+  <rect x="356" y="92" width="32" height="18" rx="1" fill="url(#rose-grad)" opacity="0.1" />
+  <rect x="366" y="116" width="12" height="6" rx="1" fill="#e11d48" opacity="0.5" />
+  <rect x="362" y="120" width="20" height="3" rx="1.5" fill="#e11d48" opacity="0.3" />
+
+  <!-- Right: Cloud (Cloud Security) -->
+  <circle cx="390" cy="260" r="22" fill="white" stroke="#0d9488" stroke-width="2" />
+  <path d="M378 268c-4-5-4-12 1-16 3-3 7-4 11-3 2-5 6-9 11-9 7 0 12 6 12 13 0 1 0 2-1 3 4 1 7 5 7 10 0 6-4 10-10 10h-29c-1 0-2-1-2-2v-6z" fill="url(#teal-grad)" opacity="0.15" stroke="url(#teal-grad)" stroke-width="1.5" />
+
+  <!-- Bottom-Right: Database (Data Recovery) -->
+  <rect x="356" y="308" width="36" height="30" rx="4" fill="white" stroke="#0d9488" stroke-width="2" />
+  <ellipse cx="374" cy="312" rx="14" ry="5" fill="url(#teal-grad)" opacity="0.2" stroke="url(#teal-grad)" stroke-width="1" />
+  <line x1="360" y1="312" x2="360" y2="334" stroke="#0d9488" stroke-width="1" opacity="0.3" />
+  <ellipse cx="374" cy="323" rx="14" ry="5" fill="url(#teal-grad)" opacity="0.12" stroke="url(#teal-grad)" stroke-width="0.8" />
+  <ellipse cx="374" cy="334" rx="14" ry="5" fill="url(#teal-grad)" opacity="0.08" stroke="url(#teal-grad)" stroke-width="0.6" />
+
+  <!-- Bottom-Left: Gears (AMC) -->
+  <circle cx="110" cy="300" r="24" fill="white" stroke="#f59e0b" stroke-width="2" />
+  <circle cx="110" cy="300" r="10" fill="url(#amber-grad)" opacity="0.15" stroke="url(#amber-grad)" stroke-width="2" />
+  <circle cx="110" cy="300" r="3" fill="url(#amber-grad)" />
+  <!-- Gear teeth -->
+  <rect x="106" y="278" width="8" height="6" rx="2" fill="url(#amber-grad)" opacity="0.4" />
+  <rect x="106" y="316" width="8" height="6" rx="2" fill="url(#amber-grad)" opacity="0.4" />
+  <rect x="88" y="296" width="6" height="8" rx="2" fill="url(#amber-grad)" opacity="0.4" />
+  <rect x="126" y="296" width="6" height="8" rx="2" fill="url(#amber-grad)" opacity="0.4" />
+
+  <!-- Top-Left: Wrench (maintenance icon for AMC) -->
+  <circle cx="120" cy="110" r="22" fill="white" stroke="#f59e0b" stroke-width="2" />
+  <path d="M128 102l-6 6c1 3 1 7-1 10l-8-8c3-2 7-2 10-1l6-7z" fill="url(#amber-grad)" opacity="0.2" stroke="url(#amber-grad)" stroke-width="1.5" />
+  <rect x="112" y="118" width="4" height="10" rx="1.5" fill="url(#amber-grad)" opacity="0.5" transform="rotate(-20 114 123)" />
+
+  <!-- Small decorative dots at intersection points -->
+  <circle cx="240" cy="200" r="4" fill="white" stroke="url(#blue-grad)" stroke-width="2" />
+  <circle cx="100" cy="120" r="3" fill="#f59e0b" opacity="0.4" />
+  <circle cx="380" cy="100" r="3" fill="#e11d48" opacity="0.4" />
+  <circle cx="380" cy="290" r="3" fill="#0d9488" opacity="0.4" />
+  <circle cx="100" cy="290" r="3" fill="#f59e0b" opacity="0.4" />
+  <circle cx="240" cy="55" r="3" fill="#10b981" opacity="0.4" />
+</svg>

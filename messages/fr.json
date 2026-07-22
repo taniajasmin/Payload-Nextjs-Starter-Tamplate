@@ -1,0 +1,84 @@
+{
+  "metadata": {
+    "title": "Simal Technologies — Meilleur Distributeur IT à Dubaï, EAU | Solutions ERP Enterprise",
+    "description": "Simal Technologies — Premier distributeur IT à Dubaï, EAU avec plus de 20 ans d'expérience. Distributeur agréé pour Crucial, UGREEN, HIKVISION et 20+ marques. Solutions ERP Enterprise propulsées par UniSoft."
+  },
+  "nav": {
+    "home": "Accueil",
+    "about": "À Propos",
+    "itDistribution": "Distribution IT",
+    "contact": "Contact",
+    "admin": "Admin",
+    "blog": "Blog",
+    "careers": "Carrières",
+    "partners": "Partenaires",
+    "solutions": "Solutions",
+    "caseStudies": "Études de Cas",
+    "whitePapers": "Livres Blancs",
+    "search": "Recherche"
+  },
+  "about": {
+    "whyChooseUs": "Pourquoi Nous",
+    "missionVision": "Mission & Vision",
+    "leadership": "Direction",
+    "awards": "Récompenses & Réalisations",
+    "tradeLicense": "Licence Commerciale",
+    "csr": "RSE"
+  },
+  "itDistribution": {
+    "productCatalog": "Catalogue Produits",
+    "productComparison": "Comparaison Produits",
+    "computerAccessories": "Accessoires Informatiques",
+    "computerComponents": "Composants Informatiques",
+    "laptops": "Ordinateurs Portables",
+    "monitors": "Écrans",
+    "gaming": "Gaming"
+  },
+  "footer": {
+    "copyright": "Simal Technologies Middle East LLC. Tous droits réservés.",
+    "legal": "Mentions Légales",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions d'Utilisation"
+  },
+  "localeSwitcher": {
+    "label": "Langue",
+    "en": "English",
+    "ar": "العربية",
+    "fr": "Français",
+    "ru": "Русский"
+  },
+  "currency": {
+    "label": "Devise",
+    "aed": "AED",
+    "usd": "USD",
+    "eur": "EUR",
+    "sar": "SAR"
+  },
+  "common": {
+    "readMore": "Lire la Suite",
+    "learnMore": "En Savoir Plus",
+    "contactUs": "Contactez-Nous",
+    "getQuote": "Demander un Devis",
+    "search": "Recherche",
+    "loading": "Chargement...",
+    "error": "Une erreur s'est produite",
+    "retry": "Réessayer",
+    "close": "Fermer",
+    "open": "Ouvrir",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "create": "Créer",
+    "view": "Voir",
+    "download": "Télécharger",
+    "share": "Partager",
+    "copy": "Copier",
+    "copied": "Copié !",
+    "allRightsReserved": "Tous droits réservés."
+  }
+}
