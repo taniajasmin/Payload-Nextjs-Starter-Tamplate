@@ -1,109 +1,65 @@
 import { unstable_cache } from "next/cache";
 import { getCachedPayload } from "@/lib/get-payload";
-import { fetchServices, type ServiceSummary } from "@/lib/fetch-services";
-import { FALLBACK_SERVICES } from "@/lib/services-fallback";
-
-import { HomePage as HomeView } from "@/components/home/home-page";
+import { BlocksRenderer } from "@/components/blocks/renderer";
+import type { LayoutBlock } from "@/components/blocks/renderer";
 
 interface Props {
   params: Promise<{ locale: string }>;
 }
 
+interface PageDoc {
+  id: string;
+  slug?: string;
+  title?: string;
+  layout?: LayoutBlock[];
+}
+
 /**
- * Fetch homepage data with cross-request caching. Mirrors the pattern used
- * for layout globals — the Payload DB is not hit on every render.
+ * Fetch the homepage (a Pages collection entry with slug "home").
  */
-const fetchHomepageData = unstable_cache(
+const fetchHomepage = unstable_cache(
   async (locale: string) => {
     const payload = await getCachedPayload();
-
-    const [homepageResult, blogPostsResult, testimonialsResult, awardsResult] =
-      await Promise.all([
-        payload.findGlobal({
-          slug: "homepage",
-          depth: 2,
-          locale: locale as "all" | "en" | "ar" | "fr" | "ru" | undefined,
-          draft: false,
-          overrideAccess: true,
-        }),
-        payload.find({
-          collection: "blog-posts",
-          limit: 9,
-          sort: "-publishedAt",
-          locale: locale as "all" | "en" | "ar" | "fr" | "ru" | undefined,
-          draft: false,
-          overrideAccess: true,
-          where: { status: { equals: "published" } },
-        }),
-        payload.find({
-          collection: "testimonials",
-          limit: 9,
-          sort: "order",
-          locale: locale as "all" | "en" | "ar" | "fr" | "ru" | undefined,
-          draft: false,
-          overrideAccess: true,
-          where: { active: { equals: true } },
-        }),
-        payload.find({
-          collection: "awards",
-          limit: 9,
-          sort: "order",
-          locale: locale as "all" | "en" | "ar" | "fr" | "ru" | undefined,
-          draft: false,
-          overrideAccess: true,
-          where: { active: { equals: true } },
-        }),
-      ]);
-
-    // Services fetched via the existing helper which handles missing tables gracefully.
-    const services = await fetchServices(locale);
-
-    return {
-      homepageData: homepageResult as unknown as Record<string, unknown>,
-      blogPosts: blogPostsResult.docs,
-      testimonials: testimonialsResult.docs,
-      awards: awardsResult.docs,
-      services,
-    };
+    const result = await payload.find({
+      collection: "pages",
+      where: {
+        slug: { equals: "home" },
+        status: { equals: "published" },
+      },
+      limit: 1,
+      locale: locale as "en" | undefined,
+      draft: false,
+      overrideAccess: true,
+    });
+    return (result.docs[0] as unknown as PageDoc) || null;
   },
-  ["homepage-data"],
+  ["homepage"],
   { revalidate: 60, tags: ["homepage"] },
 );
 
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
 
-  let homepageData: Record<string, unknown> = {};
-  let blogPosts: unknown[] = [];
-  let testimonials: unknown[] = [];
-  let awards: unknown[] = [];
-  let services: ServiceSummary[] = [];
+  let page: PageDoc | null = null;
 
   try {
-    const data = await fetchHomepageData(locale);
-    homepageData = data.homepageData;
-    blogPosts = data.blogPosts;
-    testimonials = data.testimonials;
-    awards = data.awards;
-    const allServices =
-      data.services.length > 0 ? data.services : FALLBACK_SERVICES;
-    // Mirror the uslbd.com "Our Services" grid — show the full set (up to 12)
-    // rather than a 3-card teaser.
-    services = allServices.slice(0, 12);
+    page = await fetchHomepage(locale);
   } catch {
-    // Payload CMS database is not available during static generation or
-    // tables do not exist yet. Components render with documented fallbacks.
-    services = FALLBACK_SERVICES.slice(0, 12);
+    // Payload not available — render empty shell
   }
 
-  return (
-    <HomeView
-      initialHomepageData={homepageData}
-      awards={awards}
-      blogPosts={blogPosts}
-      testimonials={testimonials}
-      services={services}
-      serverURL={process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:3000"}
-    />
-  );
+  if (!page) {
+    return (
+      <div className="flex items-center justify-center min-h-[60vh]">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold text-foreground">Welcome</h1>
+          <p className="mt-2 text-muted-foreground">
+            Create a page with slug &quot;home&quot; in the admin panel to get started.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  return <BlocksRenderer layout={page.layout || []} />;
 }

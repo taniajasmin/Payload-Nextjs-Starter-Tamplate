@@ -1,184 +1,112 @@
+/**
+ * Navigation icon & color mappings.
+ *
+ * Maps CMS icon names (strings stored in Payload) to Lucide React components.
+ * To add a new icon: import it from lucide-react and add an entry below.
+ */
+
 import {
-  Package,
-  Cpu,
-  Mouse,
-  Monitor,
-  Gamepad,
-  Laptop,
-  Newspaper,
-  HelpCircle,
-  Building2,
-  LayoutGrid,
-  Zap,
+  Home,
+  Info,
   Mail,
-  Box,
-  HardDrive,
-  Wifi,
-  Shield,
-  Smartphone,
-  Headphones,
-  ShoppingCart,
-  Briefcase,
+  Phone,
+  Settings,
   Users,
   FileText,
-  BookOpen,
-  Phone,
-  MapPin,
   Globe,
-  BarChart3,
-  Settings,
-  Wallet,
-  Truck,
-  Factory,
-  GraduationCap,
-  HeartPulse,
-  Utensils,
-  Landmark,
-  Store,
-  Clapperboard,
-  ClipboardList,
-  TrendingUp,
-  Calculator,
-  CreditCard,
-  Database,
-  Server,
-  Network,
-  Lock,
-  Video,
-  Wrench,
-  Award,
-  Sparkles,
-  Lightbulb,
-  ArrowRight,
-  CheckCircle,
-  Leaf,
+  Shield,
   Star,
-  type LucideIcon,
+  Zap,
+  Heart,
+  Truck,
+  Package,
+  BarChart3,
+  BookOpen,
+  MapPin,
+  Briefcase,
+  Newspaper,
+  HelpCircle,
+  ShoppingCart,
+  Wrench,
+  Monitor,
+  Cpu,
+  HardDrive,
+  Cloud,
+  Database,
+  Code,
+  Smartphone,
+  Wifi,
+  Laptop,
+  Gamepad,
+  Headphones,
+  Mouse,
+  LayoutGrid,
+  Search,
+  Award,
+  Clock,
+  Target,
+  CheckCircle,
+  BadgeCheck,
+  HeartHandshake,
+  Rocket,
+  TrendingUp,
+  DollarSign,
 } from "lucide-react";
 
-/** Icon color theme for mega menu cards */
-export interface IconColorTheme {
-  bg: string;
-  icon: string;
-  glow?: string;
-}
-
-export interface NavItemChild {
-  label: string;
-  href: string;
-  description?: string;
-  icon?: LucideIcon;
-  iconColor?: IconColorTheme;
-  section?: string;
-  kind?: "link" | "brand" | "case" | "viewAll";
-  brandLogo?: string;
-  image?: string;
-  badge?: string;
-}
-
-export interface NavItem {
-  label: string;
-  href: string;
-  children?: NavItemChild[];
-  dropdownOnly?: boolean;
-  dropdownVariant?: "mega" | "simple";
-  viewAllLink?: string;
-  viewAllLabel?: string;
-}
-
-const PRIMARY_TILE = {
-  bg: "from-primary to-primary",
-  icon: "text-primary-foreground",
-} as const;
-
-export const iconColors = {
-  blue: PRIMARY_TILE,
-  teal: PRIMARY_TILE,
-  pink: PRIMARY_TILE,
-  orange: PRIMARY_TILE,
-  gold: PRIMARY_TILE,
-  purple: PRIMARY_TILE,
-  emerald: PRIMARY_TILE,
-  indigo: PRIMARY_TILE,
-  rose: PRIMARY_TILE,
-} as const;
-
-export const iconNameToComponent: Record<string, LucideIcon> = {
-  Package,
-  Cpu,
-  Mouse,
-  Monitor,
-  Gamepad,
-  Laptop,
-  Newspaper,
-  HelpCircle,
-  Building2,
-  LayoutGrid,
-  Zap,
-  Mail,
-  Box,
-  HardDrive,
-  Wifi,
-  Shield,
-  Smartphone,
-  Headphones,
-  ShoppingCart,
-  Briefcase,
-  Users,
-  FileText,
-  BookOpen,
-  Phone,
-  MapPin,
-  Globe,
-  BarChart3,
-  Settings,
-  Wallet,
-  Truck,
-  Factory,
-  GraduationCap,
-  HeartPulse,
-  Utensils,
-  Landmark,
-  Store,
-  Clapperboard,
-  ClipboardList,
-  TrendingUp,
-  Calculator,
-  CreditCard,
-  Database,
-  Server,
-  Network,
-  Lock,
-  Video,
-  Wrench,
-  Award,
-  Sparkles,
-  Lightbulb,
-  ArrowRight,
-  CheckCircle,
-  Leaf,
-  Star,
+export const iconNameToComponent: Record<
+  string,
+  React.ComponentType<{ className?: string }>
+> = {
+  Home, Info, Mail, Phone, Settings, Users, FileText,
+  Globe, Shield, Star, Zap, Heart, Truck, Package,
+  BarChart3, BookOpen, MapPin, Briefcase, Newspaper,
+  HelpCircle, ShoppingCart, Wrench, Monitor, Cpu,
+  HardDrive, Cloud, Database, Code, Smartphone, Wifi,
+  Laptop, Gamepad, Headphones, Mouse, LayoutGrid, Search,
+  Award, Clock, Target, CheckCircle, BadgeCheck,
+  HeartHandshake, Rocket, TrendingUp, DollarSign,
 };
+
+export interface IconColorTheme {
+  iconColor: string;
+  iconBg: string;
+  textColor: string;
+  badgeColor: string;
+  badgeBg: string;
+  borderColor: string;
+}
 
 export const colorNameToTheme: Record<string, IconColorTheme> = {
-  blue: iconColors.blue,
-  teal: iconColors.teal,
-  pink: iconColors.pink,
-  orange: iconColors.orange,
-  gold: iconColors.gold,
-  purple: iconColors.purple,
-  emerald: iconColors.emerald,
-  indigo: iconColors.indigo,
-  rose: iconColors.rose,
+  default: {
+    iconColor: "text-primary",
+    iconBg: "bg-primary/10",
+    textColor: "text-foreground",
+    badgeColor: "text-primary-foreground",
+    badgeBg: "bg-primary",
+    borderColor: "border-border",
+  },
+  blue: {
+    iconColor: "text-blue-600",
+    iconBg: "bg-blue-50",
+    textColor: "text-foreground",
+    badgeColor: "text-white",
+    badgeBg: "bg-blue-600",
+    borderColor: "border-blue-200",
+  },
+  green: {
+    iconColor: "text-green-600",
+    iconBg: "bg-green-50",
+    textColor: "text-foreground",
+    badgeColor: "text-white",
+    badgeBg: "bg-green-600",
+    borderColor: "border-green-200",
+  },
+  red: {
+    iconColor: "text-red-600",
+    iconBg: "bg-red-50",
+    textColor: "text-foreground",
+    badgeColor: "text-white",
+    badgeBg: "bg-red-600",
+    borderColor: "border-red-200",
+  },
 };
-
-/** Navigation is populated entirely from the CMS (seeded by seed scripts).
-    No hardcoded fallback — the seeder is the single source of truth. */
-export const primaryNav: NavItem[] = [];
-
-export const languages = [
-  { code: "en", label: "English" },
-  { code: "ar", label: "العربية" },
-  { code: "fr", label: "Français" },
-  { code: "ru", label: "Русский" },
-];

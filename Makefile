@@ -1,3 +1,5 @@
+.PHONY: up down reset-db logs psql valkey-cli meili-keys minio-buckets
+
 up:
 	docker compose -f infra/docker/docker-compose.dev.yml up -d
 
@@ -12,15 +14,14 @@ logs:
 	docker compose -f infra/docker/docker-compose.dev.yml logs -f
 
 psql:
-	docker exec -it simal-postgres psql -U simal -d simal_web
+	docker exec -it app-postgres psql -U app -d app_web
 
 valkey-cli:
-	docker exec -it simal-valkey valkey-cli
+	docker exec -it app-valkey valkey-cli
 
 meili-keys:
-	curl -s http://localhost:7700/keys -H "Authorization: Bearer simal-meili-dev-key" | jq .
+	curl -s http://localhost:7700/keys -H "Authorization: Bearer app-meili-dev-key" | jq .
 
 minio-buckets:
-	docker exec -it simal-minio mc alias set local http://localhost:9010 simalminio simalminio123
-	docker exec -it simal-minio mc mb local/simal-public-dev
-	docker exec -it simal-minio mc mb local/simal-sensitive-dev
+	docker exec -it app-minio mc alias set local http://localhost:9010 minioadmin minioadmin123
+	docker exec -it app-minio mc mb local/app-public-dev

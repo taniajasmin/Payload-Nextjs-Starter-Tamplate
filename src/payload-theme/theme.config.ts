@@ -1,7 +1,7 @@
 /**
- * TwinMOS Payload Theme — central brand config.
+ * Payload Admin Theme — central brand config.
  *
- * Edit this one file to rebrand the admin panel for a different project.
+ * Edit this one file to rebrand the admin panel for your project.
  * Every component in ./components reads from here, and admin-overrides.css
  * reads the matching CSS custom properties (see :root at the top of that file).
  */
@@ -39,26 +39,25 @@ export interface PayloadThemeConfig {
 }
 
 export const themeConfig: PayloadThemeConfig = {
-  brandName: "Simal",
+  brandName: "Acme",
   brandSuffix: "CMS Admin",
-  logoUrl: "/assets/images/logo/simal-logo-home.png",
+  logoUrl: "/assets/images/logo/logo.png",
   logoHeight: 32,
   iconHeight: 24,
 
   colors: {
-    primary: "#e11d48",
-    primaryDark: "#be123c",
-    secondary: "#7c3aed",
+    primary: "#4f46e5",    // indigo-600
+    primaryDark: "#3730a3", // indigo-800
+    secondary: "#7c3aed",   // violet-600
   },
 
   headerLinks: [
     { label: "Visit Website", href: "/", external: true },
-    { label: "simalme.com", href: "https://www.simalme.com", external: true },
   ],
 
   footerLinks: [
-    { label: "Privacy", href: "https://www.simalme.com/legal/privacy-policy" },
-    { label: "Terms", href: "https://www.simalme.com/legal/terms-of-use" },
+    { label: "Privacy", href: "/privacy" },
+    { label: "Terms", href: "/terms" },
   ],
 
   accountMenu: [

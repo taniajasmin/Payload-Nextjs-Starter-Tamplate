@@ -23,7 +23,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Under Maintenance — Simal Technologies",
+  title: "Under Maintenance",
   robots: { index: false, follow: false },
 };
 

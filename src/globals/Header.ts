@@ -38,7 +38,7 @@ export const Header: GlobalConfig = {
                 {
                   name: "email",
                   type: "text",
-                  defaultValue: "info@simalme.com",
+                  defaultValue: "hello@example.com",
                 },
                 {
                   name: "whatsapp",

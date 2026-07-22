@@ -1,65 +1,23 @@
 {
   "metadata": {
-    "title": "Simal Technologies — Best IT Distributor in Dubai, UAE | Enterprise ERP Solutions",
-    "description": "Simal Technologies — Premier IT distributor in Dubai, UAE with 20+ years experience. Authorized distributor for Crucial, UGREEN, HIKVISION & 20+ brands. Enterprise ERP solutions powered by UniSoft."
+    "title": "Acme Site",
+    "description": "A modern website powered by Payload CMS and Next.js."
   },
   "nav": {
     "home": "Home",
     "about": "About",
-    "itDistribution": "IT Distribution",
-    "contact": "Contact",
-    "admin": "Admin",
-    "blog": "Blog",
-    "careers": "Careers",
-    "partners": "Partners",
-    "solutions": "Solutions",
-    "caseStudies": "Case Studies",
-    "whitePapers": "White Papers",
-    "search": "Search"
-  },
-  "about": {
-    "whyChooseUs": "Why Choose Us",
-    "missionVision": "Mission & Vision",
-    "leadership": "Leadership",
-    "awards": "Awards & Achievements",
-    "tradeLicense": "Trade License",
-    "csr": "CSR"
-  },
-  "itDistribution": {
-    "productCatalog": "Product Catalog",
-    "productComparison": "Product Comparison",
-    "computerAccessories": "Computer Accessories",
-    "computerComponents": "Computer Components",
-    "laptops": "Laptops",
-    "monitors": "Monitors",
-    "gaming": "Gaming"
+    "contact": "Contact"
   },
   "footer": {
-    "copyright": "Simal Technologies Middle East LLC. All rights reserved.",
-    "legal": "Legal",
+    "copyright": "Acme Inc. All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
-  },
-  "localeSwitcher": {
-    "label": "Language",
-    "en": "English",
-    "ar": "العربية",
-    "fr": "Français",
-    "ru": "Русский"
-  },
-  "currency": {
-    "label": "Currency",
-    "aed": "AED",
-    "usd": "USD",
-    "eur": "EUR",
-    "sar": "SAR"
   },
   "common": {
     "readMore": "Read More",
     "learnMore": "Learn More",
     "contactUs": "Contact Us",
-    "getQuote": "Get a Quote",
-    "search": "Search",
+    "getStarted": "Get Started",
     "loading": "Loading...",
     "error": "Something went wrong",
     "retry": "Retry",

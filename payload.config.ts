@@ -7,46 +7,16 @@ import sharp from "sharp";
 
 // Collections
 import { Media } from "./src/collections/Media";
-import { Pages } from "./src/collections/Pages";
-import { BlogPosts } from "./src/collections/BlogPosts";
-import { Categories } from "./src/collections/Categories";
-import { Products } from "./src/collections/Products";
-import { Brands } from "./src/collections/Brands";
-import { Careers } from "./src/collections/Careers";
-import { OfficeLocations } from "./src/collections/OfficeLocations";
-import { FAQEntries } from "./src/collections/FAQEntries";
-import { NewsItems } from "./src/collections/NewsItems";
 import { MediaFolders } from "./src/collections/MediaFolders";
+import { Pages } from "./src/collections/Pages";
 import { Users } from "./src/collections/Users";
-import { Stats } from "./src/collections/Stats";
-import { Testimonials } from "./src/collections/Testimonials";
-import { Awards } from "./src/collections/Awards";
-import { Applications } from "./src/collections/Applications";
 import { Messages } from "./src/collections/Messages";
-import { Services } from "./src/collections/Services";
-import { ERPIndustries } from "./src/collections/ERPIndustries";
 
 // Globals
 import { Header } from "./src/globals/Header";
 import { Footer } from "./src/globals/Footer";
-import { Homepage } from "./src/globals/Homepage";
 import { SiteSettings } from "./src/globals/SiteSettings";
 import { Theme } from "./src/globals/Theme";
-import { AboutPage } from "./src/globals/AboutPage";
-import { ContactPage } from "./src/globals/ContactPage";
-import { CareersContactPage } from "./src/globals/CareersContactPage";
-import { BrandsPage } from "./src/globals/BrandsPage";
-import { ProductCatalogPage } from "./src/globals/ProductCatalogPage";
-import { ComputerComponentsPage } from "./src/globals/ComputerComponentsPage";
-import { ComputerAccessoriesPage } from "./src/globals/ComputerAccessoriesPage";
-import { MonitorsPage } from "./src/globals/MonitorsPage";
-import { GamingPage } from "./src/globals/GamingPage";
-import { LaptopsPage } from "./src/globals/LaptopsPage";
-import { ItDistributionPage } from "./src/globals/ItDistributionPage";
-import { AuthorizedBrandsPage } from "./src/globals/AuthorizedBrandsPage";
-
-import { ServicesPage } from "./src/globals/ServicesPage";
-import { ErpPage } from "./src/globals/ErpPage";
 import { themeAdminComponents } from "./src/payload-theme/snippets/admin.components.wiring";
 
 export default buildConfig({
@@ -64,7 +34,7 @@ export default buildConfig({
   }),
   editor: lexicalEditor(),
   localization: {
-    locales: ["en", "ar", "fr", "ru"],
+    locales: ["en"],
     defaultLocale: "en",
     fallback: true,
   },
@@ -72,51 +42,21 @@ export default buildConfig({
     user: "users",
     components: themeAdminComponents,
     meta: {
-      titleSuffix: " — Simal CMS",
+      titleSuffix: " — CMS Admin",
     },
   },
   collections: [
     Media,
     MediaFolders,
     Pages,
-    BlogPosts,
-    Categories,
-    Products,
-    Brands,
-    Careers,
-    OfficeLocations,
-    FAQEntries,
-    NewsItems,
     Users,
-    Stats,
-    Testimonials,
-    Awards,
-    Applications,
     Messages,
-    Services,
-    ERPIndustries,
   ],
   globals: [
     Header,
     Footer,
-    Homepage,
     SiteSettings,
     Theme,
-    AboutPage,
-    ContactPage,
-    CareersContactPage,
-    BrandsPage,
-    ProductCatalogPage,
-    ComputerComponentsPage,
-    ComputerAccessoriesPage,
-    MonitorsPage,
-    GamingPage,
-    LaptopsPage,
-    ItDistributionPage,
-    AuthorizedBrandsPage,
-
-    ServicesPage,
-    ErpPage,
   ],
   typescript: {
     outputFile: path.resolve(process.cwd(), "payload-types.ts"),
@@ -126,12 +66,12 @@ export default buildConfig({
       collections: {
         media: true,
       },
-      bucket: process.env.S3_BUCKET || "simal-public-dev",
+      bucket: process.env.S3_BUCKET || "app-public-dev",
       config: {
         endpoint: process.env.S3_ENDPOINT || "http://localhost:9010",
         credentials: {
-          accessKeyId: process.env.S3_ACCESS_KEY_ID || "simalminio",
-          secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || "simalminio123",
+          accessKeyId: process.env.S3_ACCESS_KEY_ID || "minioadmin",
+          secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || "minioadmin123",
         },
         region: "us-east-1",
         forcePathStyle: true,

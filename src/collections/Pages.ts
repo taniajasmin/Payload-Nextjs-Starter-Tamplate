@@ -316,6 +316,69 @@ export const Pages: CollectionConfig = {
             },
           ],
         },
+        {
+          slug: 'imageGalleryBlock',
+          labels: { singular: 'Image Gallery', plural: 'Image Galleries' },
+          fields: [
+            {
+              name: 'heading',
+              type: 'text',
+              localized: true,
+            },
+            {
+              name: 'images',
+              type: 'array',
+              fields: [
+                {
+                  name: 'image',
+                  type: 'upload',
+                  relationTo: 'media',
+                },
+                {
+                  name: 'caption',
+                  type: 'text',
+                  localized: true,
+                },
+              ],
+            },
+          ],
+        },
+        {
+          slug: 'statsCounterBlock',
+          labels: { singular: 'Stats Counter', plural: 'Stats Counters' },
+          fields: [
+            {
+              name: 'heading',
+              type: 'text',
+              localized: true,
+            },
+            {
+              name: 'stats',
+              type: 'array',
+              fields: [
+                {
+                  name: 'label',
+                  type: 'text',
+                  required: true,
+                  localized: true,
+                },
+                {
+                  name: 'value',
+                  type: 'text',
+                  required: true,
+                },
+                {
+                  name: 'prefix',
+                  type: 'text',
+                },
+                {
+                  name: 'suffix',
+                  type: 'text',
+                },
+              ],
+            },
+          ],
+        },
       ],
     },
     {

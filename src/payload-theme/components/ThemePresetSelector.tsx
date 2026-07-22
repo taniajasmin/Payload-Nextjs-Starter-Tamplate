@@ -2,22 +2,120 @@
 
 /**
  * ThemePresetSelector — Payload custom Field component rendered at the top
- * of the Theme global form. Shows a responsive grid of preset cards. Clicking
- * a card writes its full token set into every `lightMode.*` / `darkMode.*`
- * field and `radius`, via `dispatchFields`. The `preset` field itself
- * (a hidden text field) is also written so the active card can be
- * highlighted on reload.
- *
- * Hooked in from `src/globals/Theme.ts` via `admin.components.Field`.
+ * of the Theme global form. Shows a preset card for each built-in theme.
+ * Clicking a card writes its full token set into every `lightMode.*` /
+ * `darkMode.*` field.
  */
 
 import React from "react";
 import { useField, useForm } from "@payloadcms/ui";
-import {
-  SEMANTIC_TOKENS,
-  THEME_PRESETS,
-  type ThemePreset,
-} from "../../lib/theme-presets";
+
+/* ------------------------------------------------------------------
+   Built-in theme presets (inlined — no external dependency)
+   ------------------------------------------------------------------ */
+
+interface TokenSet {
+  background: string;
+  foreground: string;
+  card: string;
+  "card-foreground": string;
+  popover: string;
+  "popover-foreground": string;
+  primary: string;
+  "primary-foreground": string;
+  secondary: string;
+  "secondary-foreground": string;
+  muted: string;
+  "muted-foreground": string;
+  accent: string;
+  "accent-foreground": string;
+  destructive: string;
+  "destructive-foreground": string;
+  border: string;
+  input: string;
+  ring: string;
+  [key: string]: string;
+}
+
+interface ThemePreset {
+  id: string;
+  name: string;
+  description: string;
+  radius: number;
+  light: TokenSet;
+  dark: TokenSet;
+}
+
+const SEMANTIC_TOKENS = [
+  "background", "foreground", "card", "card-foreground",
+  "popover", "popover-foreground", "primary", "primary-foreground",
+  "secondary", "secondary-foreground", "muted", "muted-foreground",
+  "accent", "accent-foreground", "destructive", "destructive-foreground",
+  "border", "input", "ring",
+];
+
+const THEME_PRESETS: ThemePreset[] = [
+  {
+    id: "indigo",
+    name: "Indigo",
+    description: "Clean, professional indigo palette. Great for corporate and SaaS sites.",
+    radius: 8,
+    light: {
+      background: "#ffffff", foreground: "#0f172a", card: "#ffffff",
+      "card-foreground": "#0f172a", popover: "#ffffff",
+      "popover-foreground": "#0f172a", primary: "#4f46e5",
+      "primary-foreground": "#ffffff", secondary: "#f1f5f9",
+      "secondary-foreground": "#0f172a", muted: "#f1f5f9",
+      "muted-foreground": "#64748b", accent: "#f1f5f9",
+      "accent-foreground": "#0f172a", destructive: "#ef4444",
+      "destructive-foreground": "#ffffff", border: "#e2e8f0",
+      input: "#e2e8f0", ring: "#4f46e5",
+    },
+    dark: {
+      background: "#0f172a", foreground: "#f8fafc", card: "#1e293b",
+      "card-foreground": "#f8fafc", popover: "#1e293b",
+      "popover-foreground": "#f8fafc", primary: "#6366f1",
+      "primary-foreground": "#ffffff", secondary: "#1e293b",
+      "secondary-foreground": "#f8fafc", muted: "#1e293b",
+      "muted-foreground": "#94a3b8", accent: "#1e293b",
+      "accent-foreground": "#f8fafc", destructive: "#ef4444",
+      "destructive-foreground": "#ffffff", border: "#334155",
+      input: "#334155", ring: "#6366f1",
+    },
+  },
+  {
+    id: "slate",
+    name: "Slate",
+    description: "Neutral, minimal palette. Lets your content stand out.",
+    radius: 6,
+    light: {
+      background: "#ffffff", foreground: "#0f172a", card: "#ffffff",
+      "card-foreground": "#0f172a", popover: "#ffffff",
+      "popover-foreground": "#0f172a", primary: "#0f172a",
+      "primary-foreground": "#ffffff", secondary: "#f8fafc",
+      "secondary-foreground": "#0f172a", muted: "#f8fafc",
+      "muted-foreground": "#64748b", accent: "#f8fafc",
+      "accent-foreground": "#0f172a", destructive: "#ef4444",
+      "destructive-foreground": "#ffffff", border: "#e2e8f0",
+      input: "#e2e8f0", ring: "#0f172a",
+    },
+    dark: {
+      background: "#0f172a", foreground: "#f8fafc", card: "#1e293b",
+      "card-foreground": "#f8fafc", popover: "#1e293b",
+      "popover-foreground": "#f8fafc", primary: "#f8fafc",
+      "primary-foreground": "#0f172a", secondary: "#1e293b",
+      "secondary-foreground": "#f8fafc", muted: "#1e293b",
+      "muted-foreground": "#94a3b8", accent: "#1e293b",
+      "accent-foreground": "#f8fafc", destructive: "#ef4444",
+      "destructive-foreground": "#ffffff", border: "#334155",
+      input: "#334155", ring: "#f8fafc",
+    },
+  },
+];
+
+/* ------------------------------------------------------------------
+   Component
+   ------------------------------------------------------------------ */
 
 type FieldAction = {
   type: "UPDATE";
@@ -116,13 +214,7 @@ export const ThemePresetSelector: React.FC = () => {
           Click a card to apply — manual edits below will be overwritten.
         </span>
       </div>
-      <p
-        style={{
-          margin: "0 0 12px",
-          fontSize: 12,
-          opacity: 0.7,
-        }}
-      >
+      <p style={{ margin: "0 0 12px", fontSize: 12, opacity: 0.7 }}>
         Saves will revalidate the layout cache within a few seconds.
       </p>
 
@@ -185,13 +277,7 @@ export const ThemePresetSelector: React.FC = () => {
                   </span>
                 )}
               </div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 4,
-                }}
-              >
+              <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
                 <SwatchRow preset={preset} mode="light" />
                 <SwatchRow preset={preset} mode="dark" />
               </div>

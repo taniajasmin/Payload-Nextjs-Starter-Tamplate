@@ -15,7 +15,7 @@ export const Footer: GlobalConfig = {
     {
       name: "brandName",
       type: "text",
-      defaultValue: "Simal Technologies",
+      defaultValue: "Acme Inc.",
     },
     {
       name: "brandSubtitle",
@@ -101,7 +101,7 @@ export const Footer: GlobalConfig = {
     {
       name: "contactEmail",
       type: "text",
-      defaultValue: "info@simalme.com",
+      defaultValue: "hello@example.com",
     },
     {
       name: "contactAddress",
@@ -132,7 +132,7 @@ export const Footer: GlobalConfig = {
       type: "text",
       localized: true,
       defaultValue:
-        "© {year} Simal Technologies Middle East LLC. A TwinMOS Group Company. All rights reserved.",
+        "© {year} Acme Inc. All rights reserved.",
       admin: {
         description:
           "Use {year} as a placeholder for the current year. Use {twinmosLink} for the TwinMOS link.",

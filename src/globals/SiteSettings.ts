@@ -9,7 +9,7 @@ export const SiteSettings: GlobalConfig = {
     {
       name: "siteName",
       type: "text",
-      defaultValue: "Simal Technologies",
+      defaultValue: "Acme Site",
     },
     {
       name: "logo",

@@ -1,4 +1,4 @@
-# Simal_Corporate_Website
+# Template_Corporate_Website
 
 ## Getting started
 

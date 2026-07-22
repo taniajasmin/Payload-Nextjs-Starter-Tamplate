@@ -1,5 +1,5 @@
 import { fetchGlobal } from "@/lib/fetch-global";
-import mediaUrl from "@/lib/media-url";
+import { mediaUrl } from "@/lib/media-url";
 
 /**
  * Maintenance / downtime page.
@@ -35,7 +35,7 @@ interface SiteSettingsShape {
 }
 
 const FALLBACK = {
-  siteName: "Simal Technologies",
+  siteName: "Acme Site",
   headline: "We'll be back shortly",
   message:
     "Our website is currently undergoing scheduled maintenance. We expect to be back online shortly. Thank you for your patience.",
@@ -54,8 +54,6 @@ export default async function MaintenancePage({
 }) {
   const { lng } = await searchParams;
   const locale = lng || "en";
-  const isRTL = locale === "ar";
-
   const settings = await fetchGlobal<SiteSettingsShape>(
     "site-settings",
     locale,
@@ -74,7 +72,6 @@ export default async function MaintenancePage({
 
   return (
     <main
-      dir={isRTL ? "rtl" : "ltr"}
       className="relative flex min-h-screen items-center justify-center overflow-hidden bg-slate-950 px-6 py-16 text-slate-100"
     >
       {/* Optional CMS background image */}

@@ -193,7 +193,7 @@ export const Theme: GlobalConfig = {
       name: "preset",
       type: "text",
       label: "Theme Preset",
-      defaultValue: "simal-brand",
+      defaultValue: "indigo",
       admin: {
         description:
           "Pick a preset to populate the color fields below. The card selector is the canonical entry point — manual hex edits below are for fine-tuning and survive until a different preset is chosen.",
