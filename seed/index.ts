@@ -75,7 +75,8 @@ const paragraph = (text: string): LexicalNode => ({
 });
 
 const heading = (text: string, tag: "h2" | "h3" = "h3"): LexicalNode => ({
-  type: tag,
+  type: "heading",
+  tag,
   children: [textNode(text)],
   direction: "ltr",
   format: "",
@@ -86,6 +87,9 @@ const heading = (text: string, tag: "h2" | "h3" = "h3"): LexicalNode => ({
 const bulletList = (items: string[]): LexicalNode => ({
   type: "list",
   listType: "bullet",
+  // The lexicalToJSX converter renders <node.tag> — omitting this crashes
+  // the RichText renderer with "Element type is invalid: got: undefined".
+  tag: "ul",
   children: items.map((item) => ({
     type: "listitem",
     children: [textNode(item)],
