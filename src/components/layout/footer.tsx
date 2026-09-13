@@ -69,7 +69,7 @@ export function Footer({
 
   const currentYear = new Date().getFullYear();
   const copyright =
-    data.copyright || `© ${currentYear} ${data.brandName || "Acme Inc."}. All rights reserved.`;
+    data.copyright || `© ${currentYear} ${data.brandName || "Hi-Tech Farming Ltd"}. All rights reserved.`;
 
   return (
     <footer className="border-t border-border bg-card">
@@ -85,7 +85,7 @@ export function Footer({
               />
             ) : (
               <div className="text-lg font-bold text-foreground mb-4">
-                {data.brandName || "Acme"}
+                {data.brandName || "Hi-Tech Farming"}
               </div>
             )}
             {data.brandDescription && (

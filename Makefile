@@ -23,5 +23,5 @@ meili-keys:
 	curl -s http://localhost:7700/keys -H "Authorization: Bearer app-meili-dev-key" | jq .
 
 minio-buckets:
-	docker exec -it app-minio mc alias set local http://localhost:9010 minioadmin minioadmin123
-	docker exec -it app-minio mc mb local/app-public-dev
+	docker exec app-minio mc alias set local http://localhost:9000 minioadmin minioadmin123
+	docker exec app-minio mc mb --ignore-existing local/app-public-dev

@@ -183,8 +183,12 @@ export const Theme: GlobalConfig = {
   hooks: {
     afterChange: [
       async () => {
-        revalidateTag("layout-globals", "default");
-        revalidatePath("/", "layout");
+        try {
+          revalidateTag("layout-globals", "default");
+          revalidatePath("/", "layout");
+        } catch {
+          // Outside a Next.js request context (seed/CLI scripts) — nothing to revalidate
+        }
       },
     ],
   },

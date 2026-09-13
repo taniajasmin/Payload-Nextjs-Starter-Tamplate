@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "title": "Acme Site",
+    "title": "Hi-Tech Farming BD",
     "description": "A modern website powered by Payload CMS and Next.js."
   },
   "nav": {
@@ -9,7 +9,7 @@
     "contact": "Contact"
   },
   "footer": {
-    "copyright": "Acme Inc. All rights reserved.",
+    "copyright": "Hi-Tech Farming Ltd. All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
   },

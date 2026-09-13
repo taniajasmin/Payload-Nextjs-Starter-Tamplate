@@ -75,7 +75,7 @@ export function Header({
               className="h-8 w-auto"
             />
           ) : (
-            <span className="text-foreground">Acme</span>
+            <span className="text-foreground">Hi-Tech Farming</span>
           )}
         </Link>
 

@@ -35,7 +35,7 @@ interface SiteSettingsShape {
 }
 
 const FALLBACK = {
-  siteName: "Acme Site",
+  siteName: "Hi-Tech Farming BD",
   headline: "We'll be back shortly",
   message:
     "Our website is currently undergoing scheduled maintenance. We expect to be back online shortly. Thank you for your patience.",

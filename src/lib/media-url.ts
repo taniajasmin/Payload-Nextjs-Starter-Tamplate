@@ -10,7 +10,7 @@
  *
  *   mediaUrl("/assets/images/x.avif")            -> "http://localhost:8090/assets/images/x.avif"
  *   mediaUrl("/api/media/file/foo.jpg")          -> "http://localhost:8090/api/media/file/foo.jpg"
- *   mediaUrl("https://www.simalme.com/og/x.jpg") -> unchanged (absolute)
+ *   mediaUrl("https://hitechfarmingbd.com/og/x.jpg") -> unchanged (absolute)
  *   mediaUrl("data:image/png;base64,...")        -> unchanged (data URI)
  *   mediaUrl(undefined)                          -> ""
  */

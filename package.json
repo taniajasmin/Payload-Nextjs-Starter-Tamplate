@@ -59,7 +59,8 @@
   },
   "pnpm": {
     "overrides": {
-      "@next/env": "16.2.6"
+      "@next/env": "16.2.6",
+      "tsx": "4.22.4"
     },
     "patchedDependencies": {
       "@next/env@16.2.6": "patches/@next__env@16.2.6.patch"

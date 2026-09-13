@@ -9,7 +9,7 @@ export const SiteSettings: GlobalConfig = {
     {
       name: "siteName",
       type: "text",
-      defaultValue: "Acme Site",
+      defaultValue: "Hi-Tech Farming BD",
     },
     {
       name: "logo",

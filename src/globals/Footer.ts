@@ -15,7 +15,7 @@ export const Footer: GlobalConfig = {
     {
       name: "brandName",
       type: "text",
-      defaultValue: "Acme Inc.",
+      defaultValue: "Hi-Tech Farming Ltd",
     },
     {
       name: "brandSubtitle",
@@ -132,7 +132,7 @@ export const Footer: GlobalConfig = {
       type: "text",
       localized: true,
       defaultValue:
-        "© {year} Acme Inc. All rights reserved.",
+        "© {year} Hi-Tech Farming Ltd. All rights reserved.",
       admin: {
         description:
           "Use {year} as a placeholder for the current year. Use {twinmosLink} for the TwinMOS link.",
