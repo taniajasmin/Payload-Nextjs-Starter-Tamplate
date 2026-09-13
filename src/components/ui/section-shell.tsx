@@ -18,7 +18,7 @@ const variantClasses: Record<
   default: "bg-background text-foreground",
   muted: "bg-muted text-foreground",
   // Intentional dark island — do not token-swap (see migration plan).
-  dark: "bg-slate-900 text-white",
+  dark: "bg-slate-950 text-white",
 };
 
 export function SectionShell({

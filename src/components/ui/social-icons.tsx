@@ -82,3 +82,15 @@ export const socialIconMap: Record<string, React.FC<{ className?: string }>> = {
   whatsapp: WhatsAppIcon,
   twitter: TwitterIcon,
 };
+
+/**
+ * Look up the icon component for a CMS platform value. Tolerant of
+ * casing and the "x" alias used by the Header/Footer select fields.
+ */
+export function resolveSocialIcon(
+  platform?: string,
+): React.FC<{ className?: string }> | null {
+  const key = (platform || "").toLowerCase().trim();
+  if (!key) return null;
+  return socialIconMap[key] ?? (key === "x" ? TwitterIcon : null);
+}

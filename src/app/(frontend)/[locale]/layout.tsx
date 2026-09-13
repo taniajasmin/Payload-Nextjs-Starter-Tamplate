@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, JetBrains_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
@@ -16,11 +16,18 @@ import { LivePreviewDOMUpdater } from "@/components/live-preview-dom-updater";
 import { ExtensionCleanup } from "@/components/layout/extension-cleanup";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { ThemeStyle } from "@/components/layout/theme-style";
+import { LenisProvider } from "@/components/layout/lenis-provider";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono-ff",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 type Locale = (typeof routing.locales)[number];
@@ -137,7 +144,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   return (
     <html
       lang={locale}
-      className={`${inter.variable} h-full antialiased`}
+      className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
       data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
@@ -159,7 +166,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
               </Suspense>
 
               <main id="main-content" className="flex-1" tabIndex={-1}>
-                {children}
+                <LenisProvider>{children}</LenisProvider>
               </main>
 
               <Suspense

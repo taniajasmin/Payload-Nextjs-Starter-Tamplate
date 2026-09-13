@@ -1,8 +1,6 @@
-"use client";
-
-import React from "react";
 import { mediaUrl } from "@/lib/media-url";
 import Link from "next/link";
+import { resolveSocialIcon } from "@/components/ui/social-icons";
 
 /* ------------------------------------------------------------------
    Fallback data
@@ -53,7 +51,7 @@ interface FooterCmsData {
 }
 
 /* ------------------------------------------------------------------
-   Component
+   Component — Simal-style dark footer
    ------------------------------------------------------------------ */
 export function Footer({
   cmsData,
@@ -69,27 +67,31 @@ export function Footer({
 
   const currentYear = new Date().getFullYear();
   const copyright =
-    data.copyright || `© ${currentYear} ${data.brandName || "Hi-Tech Farming Ltd"}. All rights reserved.`;
+    (data.copyright || `© ${currentYear} ${data.brandName || "Hi-Tech Farming Ltd"}. All rights reserved.`)
+      .replace("{year}", String(currentYear));
 
+  const socials = (data.socialLinks || []).filter((s) => s.url);
+
+  // Intentional dark island — do not token-swap (see migration plan).
   return (
-    <footer className="border-t border-border bg-card">
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+    <footer className="bg-slate-950 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand column */}
           <div className="sm:col-span-2 lg:col-span-1">
             {data.logo?.url ? (
               <img
                 src={mediaUrl(data.logo.url)}
                 alt={data.logo.alt || data.brandName || "Logo"}
-                className="h-8 w-auto mb-4"
+                className="h-10 w-auto mb-5"
               />
             ) : (
-              <div className="text-lg font-bold text-foreground mb-4">
+              <div className="text-lg font-extrabold text-white mb-5">
                 {data.brandName || "Hi-Tech Farming"}
               </div>
             )}
             {data.brandDescription && (
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm text-white/60 leading-relaxed">
                 {data.brandDescription}
               </p>
             )}
@@ -98,15 +100,15 @@ export function Footer({
           {/* Link columns */}
           {columns.map((col, i) => (
             <div key={i}>
-              <h4 className="font-semibold text-foreground text-sm mb-3">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-4">
                 {col.title}
               </h4>
-              <ul className="space-y-2">
+              <ul className="space-y-2.5">
                 {col.links?.map((link, j) => (
                   <li key={j}>
                     <Link
                       href={link.href || "#"}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      className="text-xs text-white/60 hover:text-white transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -118,22 +120,27 @@ export function Footer({
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-10 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">{copyright}</p>
+        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-white/50">{copyright}</p>
 
-          {data.socialLinks && data.socialLinks.length > 0 && (
-            <div className="flex items-center gap-4">
-              {data.socialLinks.map((link, i) => (
-                <a
-                  key={i}
-                  href={link.url || "#"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs text-muted-foreground hover:text-foreground transition-colors capitalize"
-                >
-                  {link.platform}
-                </a>
-              ))}
+          {socials.length > 0 && (
+            <div className="flex items-center gap-3">
+              {socials.map((link, i) => {
+                const Icon = resolveSocialIcon(link.platform);
+                if (!Icon) return null;
+                return (
+                  <a
+                    key={i}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={link.platform}
+                    className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60 transition-colors hover:text-primary hover:border-primary"
+                  >
+                    <Icon className="w-3.5 h-3.5" />
+                  </a>
+                );
+              })}
             </div>
           )}
         </div>

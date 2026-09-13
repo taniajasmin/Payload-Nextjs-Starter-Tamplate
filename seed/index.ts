@@ -259,6 +259,10 @@ async function main(): Promise<void> {
         utilityBar: {
           phone: COMPANY.phonePrimary,
           email: COMPANY.emailPrimary,
+          whatsapp: COMPANY.phonePrimary,
+          showWhatsapp: true,
+          showSocialLinks: true,
+          socialLinks: [],
         },
         ctaButton: {
           label: "Contact Us",
@@ -355,13 +359,13 @@ async function main(): Promise<void> {
     console.error("  ✗ Failed to seed site settings:", e);
   }
 
-  // ── 5. Theme Global (green — farming brand) ──────────────────────────
-  console.log("\n📋 Seeding Theme (Green preset)...");
+  // ── 5. Theme Global (Simal pink preset) ──────────────────────────────
+  console.log("\n📋 Seeding Theme (Simal pink preset)...");
   try {
     await payload.updateGlobal({
       slug: "theme",
       data: {
-        preset: "green",
+        preset: "simal",
         radius: 8,
         lightMode: {
           background: "#ffffff",
@@ -370,44 +374,44 @@ async function main(): Promise<void> {
           cardForeground: "#0f172a",
           popover: "#ffffff",
           popoverForeground: "#0f172a",
-          primary: "#16a34a",
+          primary: "#DF4C73",
           primaryForeground: "#ffffff",
-          secondary: "#f0fdf4",
-          secondaryForeground: "#14532d",
+          secondary: "#f1f5f9",
+          secondaryForeground: "#0f172a",
           muted: "#f1f5f9",
-          mutedForeground: "#64748b",
-          accent: "#dcfce7",
-          accentForeground: "#14532d",
-          destructive: "#ef4444",
+          mutedForeground: "#6b7280",
+          accent: "#f1f5f9",
+          accentForeground: "#0f172a",
+          destructive: "#dc2626",
           destructiveForeground: "#ffffff",
-          border: "#e2e8f0",
-          input: "#e2e8f0",
-          ring: "#16a34a",
+          border: "#e5e7eb",
+          input: "#e5e7eb",
+          ring: "#DF4C73",
         },
         darkMode: {
-          background: "#0c1a12",
-          foreground: "#f0fdf4",
-          card: "#13261b",
-          cardForeground: "#f0fdf4",
-          popover: "#13261b",
-          popoverForeground: "#f0fdf4",
-          primary: "#22c55e",
-          primaryForeground: "#052e16",
-          secondary: "#13261b",
-          secondaryForeground: "#f0fdf4",
-          muted: "#13261b",
+          background: "#0b1120",
+          foreground: "#f8fafc",
+          card: "#111827",
+          cardForeground: "#f8fafc",
+          popover: "#111827",
+          popoverForeground: "#f8fafc",
+          primary: "#E86F92",
+          primaryForeground: "#ffffff",
+          secondary: "#1f2937",
+          secondaryForeground: "#f8fafc",
+          muted: "#1f2937",
           mutedForeground: "#94a3b8",
-          accent: "#14532d",
-          accentForeground: "#dcfce7",
-          destructive: "#ef4444",
+          accent: "#1f2937",
+          accentForeground: "#f8fafc",
+          destructive: "#dc2626",
           destructiveForeground: "#ffffff",
-          border: "#1e3a2a",
-          input: "#1e3a2a",
-          ring: "#22c55e",
+          border: "#1f2937",
+          input: "#1f2937",
+          ring: "#E86F92",
         },
       } as Record<string, unknown>,
     });
-    console.log("  ✓ Theme (Green, light + dark)");
+    console.log("  ✓ Theme (Simal pink, light + dark)");
   } catch (e) {
     console.error("  ✗ Failed to seed theme:", e);
   }
@@ -453,12 +457,46 @@ async function main(): Promise<void> {
           ctaLink: "/contact",
         },
         {
+          blockType: "imageGalleryBlock",
+          heading: "Trusted By",
+          images: [
+            { image: logoA2iId, caption: "a2i" },
+            { image: logoWorldfishId, caption: "WorldFish" },
+            { image: logoAquaBanglaId, caption: "AquaBangla" },
+          ],
+        },
+        {
           blockType: "richTextBlock",
           heading: "Who We Are",
           content: richText(
             paragraph(COMPANY.whoWeAreP1),
             paragraph(COMPANY.whoWeAreP2),
           ),
+        },
+        {
+          blockType: "statsCounterBlock",
+          heading: "Our Impact in Numbers",
+          stats: [
+            {
+              value: "24",
+              suffix: "+",
+              label: "Years of fish farming experience",
+            },
+            {
+              value: "6",
+              label: "Consultancy services",
+            },
+            {
+              value: "10",
+              suffix: "+",
+              label: "Team members & advisors",
+            },
+            {
+              value: "3",
+              suffix: "+",
+              label: "Trusted partner organizations",
+            },
+          ],
         },
         {
           blockType: "featureCardsBlock",
@@ -512,15 +550,6 @@ async function main(): Promise<void> {
           emailAddress: COMPANY.emailPrimary,
           demoLinkLabel: "Send Us a Message",
           demoLinkUrl: "/contact",
-        },
-        {
-          blockType: "imageGalleryBlock",
-          heading: "Trusted By",
-          images: [
-            { image: logoA2iId, caption: "a2i" },
-            { image: logoWorldfishId, caption: "WorldFish" },
-            { image: logoAquaBanglaId, caption: "AquaBangla" },
-          ],
         },
       ],
       meta: {

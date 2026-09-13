@@ -19,13 +19,13 @@ export function Button({
 
   const variants = {
     primary:
-      "bg-[#DF4C73] text-white hover:bg-[#D1A080] focus:ring-[#DF4C73]",
+      "bg-primary text-primary-foreground hover:bg-primary/90 focus:ring-ring",
     secondary:
-      "bg-[#E4C2C1] text-[#292936] hover:bg-[#D1A080] hover:text-white focus:ring-[#D1A080]",
+      "bg-secondary text-secondary-foreground hover:bg-secondary/80 focus:ring-ring",
     outline:
-      "border-2 border-[#E4C2C1] text-[#292936] hover:bg-[#FEF2F2] hover:border-[#DF4C73] focus:ring-[#DF4C73]",
+      "border-2 border-border text-foreground hover:border-primary hover:text-primary focus:ring-ring",
     ghost:
-      "text-neutral-700 hover:bg-[#FEF2F2] focus:ring-[#D1A080]",
+      "text-foreground/80 hover:bg-muted hover:text-foreground focus:ring-ring",
   };
 
   const combined = cn(baseStyles, variants[variant], className);

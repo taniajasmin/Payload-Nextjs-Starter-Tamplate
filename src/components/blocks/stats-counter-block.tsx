@@ -1,3 +1,7 @@
+import { SectionShell } from "@/components/ui/section-shell";
+import { Reveal } from "@/components/ui/reveal";
+import { StatCounter } from "@/components/blocks/stat-counter";
+
 interface StatItem {
   label: string;
   value: string;
@@ -14,32 +18,31 @@ export function StatsCounterBlock({ heading, stats }: StatsCounterBlockProps) {
   if (!stats || stats.length === 0) return null;
 
   return (
-    <section className="py-16 sm:py-20 bg-muted/50">
-      <div className="max-w-7xl mx-auto px-6">
-        {heading && (
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight text-center mb-12">
-            {heading}
-          </h2>
-        )}
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((stat, i) => (
-            <div key={i} className="text-center p-6">
-              <div className="text-4xl sm:text-5xl font-bold text-primary tabular-nums">
-                {stat.prefix && (
-                  <span className="text-2xl sm:text-3xl">{stat.prefix}</span>
-                )}
-                {stat.value}
-                {stat.suffix && (
-                  <span className="text-2xl sm:text-3xl">{stat.suffix}</span>
-                )}
-              </div>
-              <p className="mt-2 text-sm font-medium text-muted-foreground">
-                {stat.label}
-              </p>
+    <SectionShell variant="dark">
+      {heading && (
+        <Reveal>
+          <div className="border-b border-white/10 pb-4 mb-8">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+              {heading}
+            </h2>
+          </div>
+        </Reveal>
+      )}
+      <div className="grid gap-8 border-t border-white/10 pt-8 sm:grid-cols-2 lg:grid-cols-4">
+        {stats.map((stat, i) => (
+          <Reveal key={i} delay={i * 0.08}>
+            <div className="border-l border-white/20 pl-4">
+              <StatCounter
+                value={stat.value}
+                prefix={stat.prefix}
+                suffix={stat.suffix}
+                className="font-mono text-3xl sm:text-4xl font-extrabold tabular-nums text-white"
+              />
+              <p className="mt-2 text-sm text-white/60">{stat.label}</p>
             </div>
-          ))}
-        </div>
+          </Reveal>
+        ))}
       </div>
-    </section>
+    </SectionShell>
   );
 }
