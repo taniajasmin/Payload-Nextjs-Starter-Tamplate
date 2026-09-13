@@ -61,5 +61,5 @@ export default async function HomePage({ params }: Props) {
     );
   }
 
-  return <BlocksRenderer layout={page.layout || []} />;
+  return <BlocksRenderer layout={page.layout || []} isHome />;
 }

@@ -14,6 +14,8 @@ export interface LayoutBlock {
 
 interface BlocksRendererProps {
   layout: LayoutBlock[];
+  /** Landing page flag — currently gives the hero the animated koi scene. */
+  isHome?: boolean;
 }
 
 /**
@@ -23,7 +25,7 @@ interface BlocksRendererProps {
  * 2. Create the component in this directory
  * 3. Add a case to the switch below
  */
-export function BlocksRenderer({ layout }: BlocksRendererProps) {
+export function BlocksRenderer({ layout, isHome }: BlocksRendererProps) {
   if (!layout || layout.length === 0) {
     return (
       <div className="flex items-center justify-center min-h-[40vh] text-muted-foreground">
@@ -38,7 +40,7 @@ export function BlocksRenderer({ layout }: BlocksRendererProps) {
         const key = block.id || `${block.blockType}-${index}`;
         switch (block.blockType) {
           case "heroBlock":
-            return <HeroBlock key={key} {...block} />;
+            return <HeroBlock key={key} {...block} koi={isHome} />;
           case "richTextBlock":
             return <RichTextBlock key={key} {...block} />;
           case "featureCardsBlock":

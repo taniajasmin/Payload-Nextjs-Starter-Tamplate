@@ -1,6 +1,7 @@
 import { mediaUrl } from "@/lib/media-url";
 import { cn } from "@/lib/utils";
 import { Reveal } from "@/components/ui/reveal";
+import KoiArt from "@/components/koi-art";
 
 interface HeroBlockProps {
   backgroundImage?: { url?: string; alt?: string };
@@ -8,14 +9,17 @@ interface HeroBlockProps {
   subHeadline?: string;
   ctaLabel?: string;
   ctaLink?: string;
+  /** Render the animated koi underwater scene as the hero background
+   *  (landing page only — set by the renderer, not a CMS field). */
+  koi?: boolean;
 }
 
 /**
  * Simal-style hero. With a background image the photo sits under a dark
- * slate overlay with white display type; without one the hero falls back
- * to a light token-driven band (dot-grid texture on `bg-muted`) so
- * imageless pages stay light. Headline accent: last two words in primary
- * ("plain ACCENT plain" pattern).
+ * slate overlay with white display type; with `koi` the animated
+ * underwater canvas becomes the scene; without either the hero falls
+ * back to a light token-driven band (dot-grid texture on `bg-muted`).
+ * Headline accent: last two words in primary ("plain ACCENT plain").
  */
 export function HeroBlock({
   backgroundImage,
@@ -23,8 +27,10 @@ export function HeroBlock({
   subHeadline,
   ctaLabel,
   ctaLink,
+  koi,
 }: HeroBlockProps) {
   const hasImage = Boolean(backgroundImage?.url);
+  const darkScene = hasImage || Boolean(koi);
 
   // "plain ACCENT plain" — accent the last two words of longer headlines
   const renderHeadline = (text: string) => {
@@ -46,10 +52,19 @@ export function HeroBlock({
     <section
       className={cn(
         "relative flex items-center overflow-hidden min-h-[66.67vh]",
-        hasImage ? "bg-slate-950" : "bg-muted",
+        darkScene ? "bg-slate-950" : "bg-muted",
       )}
     >
-      {hasImage ? (
+      {koi ? (
+        <>
+          <KoiArt className="absolute inset-0" />
+          {/* soft scrim so display type stays legible over the scene */}
+          <div
+            className="absolute inset-0 bg-gradient-to-r from-slate-950/60 via-slate-950/30 to-transparent"
+            aria-hidden="true"
+          />
+        </>
+      ) : hasImage ? (
         <>
           <img
             src={mediaUrl(backgroundImage!.url!)}
@@ -71,7 +86,7 @@ export function HeroBlock({
               <h1
                 className={cn(
                   "text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]",
-                  hasImage ? "text-white" : "text-foreground",
+                  darkScene ? "text-white" : "text-foreground",
                 )}
               >
                 {renderHeadline(headline)}
@@ -83,7 +98,7 @@ export function HeroBlock({
               <p
                 className={cn(
                   "mt-6 text-lg leading-relaxed max-w-xl",
-                  hasImage ? "text-white/80" : "text-muted-foreground",
+                  darkScene ? "text-white/80" : "text-muted-foreground",
                 )}
               >
                 {subHeadline}
