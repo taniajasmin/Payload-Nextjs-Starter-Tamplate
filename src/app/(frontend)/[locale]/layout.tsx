@@ -141,6 +141,12 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
 
   const messages = await getMessages({ locale });
 
+  // Default color mode from the Theme global ("light" | "dark" | "system").
+  const { themeData } = await getLayoutGlobals(locale);
+  const rawMode = (themeData as Record<string, unknown> | null)?.mode;
+  const defaultMode =
+    rawMode === "dark" || rawMode === "system" ? rawMode : "light";
+
   return (
     <html
       lang={locale}
@@ -153,7 +159,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
       </head>
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         <NextIntlClientProvider messages={messages} locale={locale}>
-          <ThemeProvider>
+          <ThemeProvider defaultTheme={defaultMode}>
             <LivePreviewProvider>
               <LivePreviewDOMUpdater />
 

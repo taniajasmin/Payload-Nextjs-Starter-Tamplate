@@ -306,6 +306,10 @@ async function main(): Promise<void> {
       slug: "footer",
       data: {
         brandName: COMPANY.name,
+        brandSubtitle: "Smart Farming · IoT · Aquaculture",
+        contactPhone: COMPANY.phonePrimary,
+        contactEmail: COMPANY.emailPrimary,
+        contactAddress: COMPANY.address,
         brandDescription:
           "A research, development, business and innovation organization driving smart agricultural and industrial development in Bangladesh through 4th Industrial Revolution (4IR) technology.",
         logo: logoId,
@@ -370,6 +374,7 @@ async function main(): Promise<void> {
       slug: "theme",
       data: {
         preset: "simal",
+        mode: "light",
         radius: 8,
         lightMode: {
           background: "#ffffff",

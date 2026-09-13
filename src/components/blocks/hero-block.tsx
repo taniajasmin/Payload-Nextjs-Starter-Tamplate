@@ -36,7 +36,9 @@ export function HeroBlock({
   };
 
   return (
-    <section className="relative flex items-center overflow-hidden min-h-[85vh] bg-slate-950">
+    // Two-thirds of the viewport — enough presence without swallowing
+    // the first content section below the fold.
+    <section className="relative flex items-center overflow-hidden min-h-[66.67vh] bg-slate-950">
       {backgroundImage?.url && (
         <>
           <img
