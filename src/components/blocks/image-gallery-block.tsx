@@ -1,5 +1,5 @@
 import { mediaUrl } from "@/lib/media-url";
-import { MarqueeStrip } from "@/components/ui/marquee-strip";
+import { cn } from "@/lib/utils";
 import { Reveal } from "@/components/ui/reveal";
 
 interface GalleryImage {
@@ -36,10 +36,12 @@ function GalleryTile({ item }: { item: GalleryImage }) {
   );
 }
 
+/**
+ * Responsive photo grid — rows and columns at every breakpoint.
+ * Larger sets (7+) widen to 4 columns on desktop, smaller sets stay at 3.
+ */
 export function ImageGalleryBlock({ heading, images }: ImageGalleryBlockProps) {
   if (!images || images.length === 0) return null;
-
-  const marquee = images.length > 6;
 
   return (
     <section className="py-16 md:py-20 lg:py-24">
@@ -54,31 +56,18 @@ export function ImageGalleryBlock({ heading, images }: ImageGalleryBlockProps) {
           </Reveal>
         )}
 
-        {marquee ? (
-          // Long galleries become a Simal-style trust band: an auto-scrolling
-          // marquee (pauses on hover) instead of an ever-growing grid.
-          <MarqueeStrip className="py-2" trackClassName="gap-6 pr-6">
-            {images.map((item, i) => (
-              <div key={i} className="w-56 shrink-0 sm:w-64">
-                <GalleryTile item={item} />
-              </div>
-            ))}
-          </MarqueeStrip>
-        ) : (
-          <div
-            className={
-              images.length >= 5
-                ? "grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-6"
-                : "grid gap-4 grid-cols-2 sm:grid-cols-3"
-            }
-          >
-            {images.map((item, i) => (
-              <Reveal key={i} delay={i * 0.08}>
-                <GalleryTile item={item} />
-              </Reveal>
-            ))}
-          </div>
-        )}
+        <div
+          className={cn(
+            "grid gap-4 grid-cols-2 sm:grid-cols-3",
+            images.length > 6 ? "lg:grid-cols-4" : "lg:grid-cols-3",
+          )}
+        >
+          {images.map((item, i) => (
+            <Reveal key={i} delay={(i % 4) * 0.08}>
+              <GalleryTile item={item} />
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );

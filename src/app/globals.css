@@ -18,17 +18,6 @@
 @theme inline {
   --font-display: var(--font-inter);
   --font-mono: var(--font-mono-ff, var(--font-inter));
-  --animate-marquee-fast: marquee-fast 40s linear infinite;
-}
-
-/* Seamless logo-strip loop (children are duplicated by <MarqueeStrip>). */
-@keyframes marquee-fast {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
 }
 
 /*
